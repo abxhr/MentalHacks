@@ -89,12 +89,14 @@ predstr = model.predict(train.text)
 #print(preds.min(), preds.max())
 
 def postprocessor(preds):
-  range = predstr.max()-predstr.min()
+  predstr_max = 47.53555
+  predstr_min = -32.273525
+  range = predstr_max - predstr_min
   norm_preds = []
   probab = []
   for i in preds:
-    norm_preds.append((i - predstr.min()) / range)
-    probab.append((i - predstr.min()) * 100 / range)
+    norm_preds.append((i - predstr_min) / range)
+    probab.append((i - predstr_min) * 100 / range)
   return np.mean(probab)
 
 #print(postprocessor(preds))
