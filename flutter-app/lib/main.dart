@@ -3,19 +3,21 @@ import './screens/home.dart';
 import './screens/result.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget { 
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+ 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hack Your mind',
       theme: ThemeData(
         primarySwatch: Colors.amber,
-        scaffoldBackgroundColor: Colors.black
+  
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
       routes: {
         ResultScreen.routeName : (context) => ResultScreen()
       },

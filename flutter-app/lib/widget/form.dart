@@ -3,46 +3,50 @@ import '../screens/result.dart';
 
 
 class FormWidget extends StatelessWidget {
-
+  const FormWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-              alignment: Alignment.center,
-              height: 300,
-              padding: const EdgeInsets.all(8),
-              width: MediaQuery.of(context).size.width * 0.9,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey , width: 2),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Column(
+        children: [ 
+          const Spacer(),
+          const SizedBox(
+            height: 100,
+          ),
+          const TextField(
+            decoration: InputDecoration(
+              
+              labelText: 'Enter your state of mind in words',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.green,
+                fontSize: 18
               ),
-              child: Column(
-                children: [ 
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Enter your state of mind in words',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  ElevatedButton(
-                    child: const Text(
-                      'Analyze my results',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18
-                      ),
-                    ),
-                    onPressed: (){
-                      Navigator.of(context).pushNamed(ResultScreen.routeName);
-                    }
-                  )
-                ]
+
+            ),
+            keyboardType: TextInputType.multiline,
+            minLines: 1,
+            maxLines: 5,
+          ),
+          const SizedBox(
+            height: 60,
+          ),
+          ElevatedButton(
+            child: const Text(
+              'Analyze my results',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18
               ),
-          );
+            ),
+            onPressed: (){
+              Navigator.of(context).pushNamed(ResultScreen.routeName);
+            }
+          ),
+          const Spacer(),
+        ]
+      ),
+    );
   }
 }
