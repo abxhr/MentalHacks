@@ -14,11 +14,12 @@ import numpy as np
 #train_data = pd.read_csv('/content/train.txt', sep = ';')
 #train_data.head()
 
-# from datasets import load_dataset
+#!pip install datasets
 
-# dataset = load_dataset("emotion")
-# dataset.head()
+#from datasets import load_dataset
 
+#dataset = load_dataset("emotion")
+#dataset['train'].info.description
 # https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp
 
 def preprocess(file):
@@ -72,6 +73,12 @@ test = preprocess('test.txt')
 results = model.evaluate(test['text'], test['hs'])
 
 print(results)
+
+!mkdir -p saved_model
+model.save('saved_model/nlp_model')
+
+# To load model
+# model = tf.keras.models.load_model('saved_model/nlp_model')
 
 #preds = model.predict(test.text)
 
