@@ -1,9 +1,13 @@
-from ast import Str
-import string
 from fastapi import FastAPI
-from matplotlib.pyplot import text
 import tensorflow as tf
 import numpy as np
+import uvicorn
+
+# To run the server, use the command
+# install the uvicorn client and fastapi 
+# {pip install fastapi uvicorn} 
+# to start the api 
+# python3 -m uvicorn api.main:app --reload
 
 app = FastAPI()
 model = tf.keras.models.load_model('nlp/saved_model/nlp_model')
@@ -19,14 +23,12 @@ def postprocessor(preds):
     probab.append((i - predstr_min) * 100 / range)
   return np.mean(probab)
 
-  
-
 @app.get("/")
 def index():
     return {'message' : 'Its working'}
 
     
-@app.post("/mental/{text}")
+@app.get("/mental/{text}")
 def checkMentalHealth(text: str):
     try:
         list = []
