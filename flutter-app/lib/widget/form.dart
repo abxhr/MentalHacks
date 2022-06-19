@@ -15,16 +15,18 @@ class FormWidget extends StatelessWidget {
             height: 100,
           ),
           const TextField(
+            style: TextStyle(
+              fontSize: 22
+            ),
             decoration: InputDecoration(
-              
               labelText: 'Enter your state of mind in words',
               labelStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.green,
-                fontSize: 18
+                fontSize: 22
               ),
-
             ),
+            maxLength: 1000,
             keyboardType: TextInputType.multiline,
             minLines: 1,
             maxLines: 5,
