@@ -1,4 +1,7 @@
 <h1 align=center><b>Neural Mental Triage</b></h1> 
+<p align=center>
+    <img src="./logo.png" />
+</p>
 
 ## 💡 Inspiration
 
